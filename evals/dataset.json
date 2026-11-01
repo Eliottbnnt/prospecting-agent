@@ -1,0 +1,21 @@
+{
+  "_note": "SYNTHETIC scenarios (no real company facts). Each case lists counts of VERIFIED evidence per category and the classification a human SDR would expect. They test the scoring/routing rules, not live research.",
+  "cases": [
+    {"name": "agent-builder-with-need", "evidence": {"agentic": 3, "production": 2, "hiring": 2, "unmet_need": 1, "verified_claims": 9, "competitive_claims": 1, "integration": 1},
+     "expected": "sales_opportunity", "why": "Deploys agents, states an observability problem, no internal tool."},
+    {"name": "model-provider-with-internal-tooling (Mistral-like)", "evidence": {"agentic": 2, "production": 2, "hiring": 2, "internal_tooling": 2, "integration": 2, "verified_claims": 10, "competitive_claims": 4, "model_provider": true},
+     "expected": "partnership_opportunity", "why": "Strong technical relevance, own tracing/evaluation platform, documented LangChain integration."},
+    {"name": "already-uses-third-party-tool", "evidence": {"agentic": 2, "production": 2, "hiring": 1, "external_tool": 1, "verified_claims": 7, "competitive_claims": 1},
+     "expected": "needs_more_research", "why": "Technical fit but an incumbent tool lowers buyer fit; validate before pitching."},
+    {"name": "little-evidence", "evidence": {"agentic": 1, "production": 1, "verified_claims": 2},
+     "expected": "needs_more_research", "why": "Too little verified evidence: low confidence, not a rejection."},
+    {"name": "no-evidence-at-all", "evidence": {},
+     "expected": "needs_more_research", "why": "Missing information is not negative evidence."},
+    {"name": "no-ai-activity", "evidence": {"verified_claims": 6, "competitive_claims": 1},
+     "expected": "not_qualified", "why": "Evidence exists but shows no agentic AI activity."},
+    {"name": "strong-tech-weak-buyer", "evidence": {"agentic": 3, "production": 3, "hiring": 2, "internal_tooling": 1, "verified_claims": 10, "competitive_claims": 1},
+     "expected": "not_qualified", "why": "Builds its own tooling and no partnership angle: do not pitch."},
+    {"name": "ecosystem-player-no-need", "evidence": {"agentic": 2, "production": 1, "hiring": 1, "integration": 2, "verified_claims": 8, "competitive_claims": 2, "model_provider": true},
+     "expected": "partnership_opportunity", "why": "Documented integration and model provider; no stated need."}
+  ]
+}

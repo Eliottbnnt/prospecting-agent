@@ -1,0 +1,11 @@
+langchain>=1.0
+langgraph>=1.0
+langchain-anthropic
+langchain-community
+ddgs
+python-dotenv
+langsmith
+requests
+pydantic>=2
+# optional, better search results:
+# langchain-tavily
